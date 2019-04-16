@@ -14,6 +14,8 @@
         android:padding="12dp"
         app:boundaryColor="#39dc10"
         app:boundaryWidth="10dp"
+        app:centerText1TextSize="@dimen/distance_text"
+        app:centerText2TextSize="@dimen/duration_text"
         app:input1Color="#83230987"
         app:input1TextSize="20sp"
         app:input1Width="32dp"

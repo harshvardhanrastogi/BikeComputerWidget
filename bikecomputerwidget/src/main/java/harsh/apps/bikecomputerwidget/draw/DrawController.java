@@ -14,7 +14,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
-import android.util.Log;
 
 import java.util.Locale;
 
@@ -33,7 +32,7 @@ class DrawController {
     private Paint maxSpeedArcPaint;
     private Paint boundaryArcPaint;
     private TextPaint speedTextPaint;
-    private TextPaint unitTextPaint;
+    private TextPaint distanceUnitTextPaint;
     private TextPaint maxSpeedTextPaint;
     private TextPaint durationTextPaint;
     private TextPaint durationUnitTextPaint;
@@ -89,14 +88,13 @@ class DrawController {
         Paint p = new Paint(maxSpeedArcPaint);
         p.setStrokeWidth(5);
         p.setColor(Color.BLACK);
-        canvas.drawRect(speedArcRectF, p);
         drawArcs(canvas);
         drawText(canvas);
     }
 
     private void drawText(@NonNull Canvas canvas) {
         canvas.drawText(getFormattedSpeed(), speedTextX, speedTextY, speedTextPaint);
-        canvas.drawText(UNIT_SPEED, speedUnitTextX, speedUnitTextY, unitTextPaint);
+        canvas.drawText(UNIT_SPEED, speedUnitTextX, speedUnitTextY, distanceUnitTextPaint);
         canvas.drawText(String.valueOf((int) maxSpeed), maxSpeedTextX, maxSpeedTextY, maxSpeedTextPaint);
         drawDurationText(canvas);
         canvas.drawText(padDistanceWithZero(distance), distanceTextX, distanceTextY, distanceTextPaint);
@@ -131,6 +129,8 @@ class DrawController {
                 computer.setInput2StrokeWidth(a.getDimension(R.styleable.BikeComputer_input2Width, getDimension(R.dimen.max_speed_arc_stroke_width)));
                 computer.setBoundaryStrokeWidth(a.getDimension(R.styleable.BikeComputer_boundaryWidth, getDimension(R.dimen.max_speed_arc_stroke_width)));
                 computer.setInput1TextSize(a.getDimensionPixelSize(R.styleable.BikeComputer_input1TextSize, Math.round(getDimension(R.dimen.default_speed_text))));
+                computer.setCenterInput1TextSize(a.getDimensionPixelSize(R.styleable.BikeComputer_centerText1TextSize, Math.round(getDimension(R.dimen.distance_text))));
+                computer.setCenterInput2TextSize(a.getDimensionPixelSize(R.styleable.BikeComputer_centerText2TextSize, Math.round(getDimension(R.dimen.duration_text))));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -173,10 +173,10 @@ class DrawController {
         speedTextPaint.setColor(textColor);
         speedTextPaint.setTypeface(light);
 
-        unitTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        unitTextPaint.setTextSize(getDimension(R.dimen.default_speed_unit_text));
-        unitTextPaint.setColor(textColor);
-        unitTextPaint.setTypeface(light);
+        distanceUnitTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        distanceUnitTextPaint.setTextSize(computer.getInput1UnitTextSize());
+        distanceUnitTextPaint.setColor(textColor);
+        distanceUnitTextPaint.setTypeface(light);
 
         maxSpeedTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         maxSpeedTextPaint.setTextSize(getDimension(R.dimen.max_speed_text));
@@ -184,21 +184,21 @@ class DrawController {
         maxSpeedTextPaint.setTypeface(semiBold);
 
         durationTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        durationTextPaint.setTextSize(getDimension(R.dimen.duration_text));
+        durationTextPaint.setTextSize(computer.getCenterInput2TextSize());
         durationTextPaint.setColor(textColor);
         durationTextPaint.setTypeface(light);
 
         durationUnitTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        durationUnitTextPaint.setTextSize(getDimension(R.dimen.duration_unit_text));
+        durationUnitTextPaint.setTextSize(computer.getCenterInput2UnitTextSize());
         durationUnitTextPaint.setColor(textColor);
         durationUnitTextPaint.setTypeface(light);
 
         durationSecondsTextPaint = new TextPaint(durationUnitTextPaint);
-        durationSecondsTextPaint.setTextSize(getDimension(R.dimen.duration_seconds_text));
+        durationSecondsTextPaint.setTextSize(computer.getCenterInput2UnitTextSize());
         durationSecondsTextPaint.setTypeface(semiBold);
 
         distanceTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-        distanceTextPaint.setTextSize(getDimension(R.dimen.distance_text));
+        distanceTextPaint.setTextSize(computer.getCenterInput1TextSize());
         distanceTextPaint.setColor(textColor);
         distanceTextPaint.setTypeface(light);
     }
@@ -239,7 +239,7 @@ class DrawController {
         speedTextY = speedArcRectF.bottom + getTextHeight(getFormattedSpeed(), speedTextPaint) / 2;
 
         textBounds.setEmpty();
-        unitTextPaint.getTextBounds(UNIT_SPEED, 0, UNIT_SPEED.length(), textBounds);
+        distanceUnitTextPaint.getTextBounds(UNIT_SPEED, 0, UNIT_SPEED.length(), textBounds);
         speedUnitTextX = computer.getViewCenter() + getDimension(R.dimen._8dp);
         speedTextY -= textBounds.height() / 2; // input1 text + unit horizontally align with the input1 arc width
         speedUnitTextY = speedTextY + textBounds.height();

@@ -68,7 +68,7 @@ public class Computer {
     }
 
     public float getInput1UnitTextSize() {
-        return input1UnitTextSize;
+        return input1TextSize * 0.6f;
     }
 
     public void setInput1UnitTextSize(float input1UnitTextSize) {
@@ -76,7 +76,7 @@ public class Computer {
     }
 
     public float getCenterInput1UnitTextSize() {
-        return centerInput1UnitTextSize;
+        return centerInput1UnitTextSize * 0.66f;
     }
 
     public void setCenterInput1UnitTextSize(float centerInput1UnitTextSize) {
@@ -84,7 +84,7 @@ public class Computer {
     }
 
     public float getCenterInput2UnitTextSize() {
-        return centerInput2UnitTextSize;
+        return centerInput2TextSize * 0.4f;
     }
 
     public void setCenterInput2UnitTextSize(float centerInput2UnitTextSize) {
