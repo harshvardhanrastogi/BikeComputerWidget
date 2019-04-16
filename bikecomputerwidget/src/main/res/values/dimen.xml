@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bike_computer_widget_padding">8dp</dimen>
+    <dimen name="speed_arc_padding">8dp</dimen>
+    <dimen name="speed_arc_stroke_width">24dp</dimen>
+    <dimen name="max_speed_arc_stroke_width">6dp</dimen>
+    <dimen name="boundary_stroke_width">5dp</dimen>
+    <dimen name="default_speed_text">32sp</dimen>
+    <dimen name="duration_text">28sp</dimen>
+    <dimen name="duration_unit_text">11sp</dimen>
+    <dimen name="duration_seconds_text">14sp</dimen>
+    <dimen name="default_speed_unit_text">12sp</dimen>
+    <dimen name="distance_text">18sp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="max_speed_text">12sp</dimen>
+</resources>

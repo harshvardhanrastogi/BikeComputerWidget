@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="speedArcColor">#00b0ff</color>
+    <color name="maxSpeedArcColor">#ff1744</color>
+    <color name="circumArcColor">#ffc400</color>
+    <color name="appThemeColor">#012e41</color>
+    <color name="test_color">#334e87</color>
+    <color name="textColor">#333333</color>
+</resources>
