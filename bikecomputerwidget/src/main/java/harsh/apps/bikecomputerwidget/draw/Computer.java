@@ -7,115 +7,115 @@ public class Computer {
 
     private int size;
     private float padding;
-    private float input1TextSize;
-    private float input2TextSize;
-    private float centerInput1TextSize;
-    private float centerInput2TextSize;
-    private float input1UnitTextSize;
-    private float centerInput1UnitTextSize;
-    private float centerInput2UnitTextSize;
+    private float speedTextSize;
+    private float maxSpeedTextSize;
+    private float distanceTextSize;
+    private float durationTextSize;
+    private float speedUnitTextSize;
+    private float distanceUnitTextSize;
+    private float durationUnitTextSize;
     private float boundaryStrokeWidth;
-    private float input1StrokeWidth;
-    private float input2StrokeWidth;
+    private float speedStrokeWidth;
+    private float maxSpeedStrokeWidth;
 
 
-    public int getSize() {
+    int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    void setSize(int size) {
         this.size = size;
     }
 
-    public float getPadding() {
+    float getPadding() {
         return padding;
     }
 
-    public void setPadding(float padding) {
+    void setPadding(float padding) {
         this.padding = padding;
     }
 
-    public float getInput1TextSize() {
-        return input1TextSize;
+    float getSpeedTextSize() {
+        return speedTextSize;
     }
 
-    public void setInput1TextSize(float input1TextSize) {
-        this.input1TextSize = input1TextSize;
+    void setSpeedTextSize(float speedTextSize) {
+        this.speedTextSize = speedTextSize;
     }
 
-    public float getInput2TextSize() {
-        return input2TextSize;
+    float getMaxSpeedTextSize() {
+        return maxSpeedTextSize;
     }
 
-    public void setInput2TextSize(float input2TextSize) {
-        this.input2TextSize = input2TextSize;
+    void setMaxSpeedTextSize(float maxSpeedTextSize) {
+        this.maxSpeedTextSize = maxSpeedTextSize;
     }
 
-    public float getCenterInput1TextSize() {
-        return centerInput1TextSize;
+    float getDistanceTextSize() {
+        return distanceTextSize;
     }
 
-    public void setCenterInput1TextSize(float centerInput1TextSize) {
-        this.centerInput1TextSize = centerInput1TextSize;
+    void setDistanceTextSize(float distanceTextSize) {
+        this.distanceTextSize = distanceTextSize;
     }
 
-    public float getCenterInput2TextSize() {
-        return centerInput2TextSize;
+    float getDurationTextSize() {
+        return durationTextSize;
     }
 
-    public void setCenterInput2TextSize(float centerInput2TextSize) {
-        this.centerInput2TextSize = centerInput2TextSize;
+    void setDurationTextSize(float durationTextSize) {
+        this.durationTextSize = durationTextSize;
     }
 
-    public float getInput1UnitTextSize() {
-        return input1TextSize * 0.6f;
+    float getSpeedUnitTextSize() {
+        return speedTextSize * 0.6f;
     }
 
-    public void setInput1UnitTextSize(float input1UnitTextSize) {
-        this.input1UnitTextSize = input1UnitTextSize;
+    void setSpeedUnitTextSize(float speedUnitTextSize) {
+        this.speedUnitTextSize = speedUnitTextSize;
     }
 
-    public float getCenterInput1UnitTextSize() {
-        return centerInput1UnitTextSize * 0.66f;
+    float getDistanceUnitTextSize() {
+        return distanceUnitTextSize * 0.66f;
     }
 
-    public void setCenterInput1UnitTextSize(float centerInput1UnitTextSize) {
-        this.centerInput1UnitTextSize = centerInput1UnitTextSize;
+    void setDistanceUnitTextSize(float distanceUnitTextSize) {
+        this.distanceUnitTextSize = distanceUnitTextSize;
     }
 
-    public float getCenterInput2UnitTextSize() {
-        return centerInput2TextSize * 0.4f;
+    float getDurationUnitTextSize() {
+        return durationTextSize * 0.4f;
     }
 
-    public void setCenterInput2UnitTextSize(float centerInput2UnitTextSize) {
-        this.centerInput2UnitTextSize = centerInput2UnitTextSize;
+    void setDurationUnitTextSize(float durationUnitTextSize) {
+        this.durationUnitTextSize = durationUnitTextSize;
     }
 
-    public float getBoundaryStrokeWidth() {
+    float getBoundaryStrokeWidth() {
         return boundaryStrokeWidth;
     }
 
-    public void setBoundaryStrokeWidth(float boundaryStrokeWidth) {
+    void setBoundaryStrokeWidth(float boundaryStrokeWidth) {
         this.boundaryStrokeWidth = boundaryStrokeWidth;
     }
 
-    public float getInput1StrokeWidth() {
-        return input1StrokeWidth;
+    float getSpeedStrokeWidth() {
+        return speedStrokeWidth;
     }
 
-    public void setInput1StrokeWidth(float input1StrokeWidth) {
-        this.input1StrokeWidth = input1StrokeWidth;
+    void setSpeedStrokeWidth(float speedStrokeWidth) {
+        this.speedStrokeWidth = speedStrokeWidth;
     }
 
-    public float getInput2StrokeWidth() {
-        return input2StrokeWidth;
+    float getMaxSpeedStrokeWidth() {
+        return maxSpeedStrokeWidth;
     }
 
-    public void setInput2StrokeWidth(float input2StrokeWidth) {
-        this.input2StrokeWidth = input2StrokeWidth;
+    void setMaxSpeedStrokeWidth(float maxSpeedStrokeWidth) {
+        this.maxSpeedStrokeWidth = maxSpeedStrokeWidth;
     }
 
-    public float getViewCenter() {
+    float getViewCenter() {
         return size / 2;
     }
 }

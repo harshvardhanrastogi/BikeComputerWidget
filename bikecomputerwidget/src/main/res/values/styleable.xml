@@ -2,18 +2,18 @@
 <resources>
     <declare-styleable name="BikeComputer">
         <attr name="boundaryColor" format="color|reference" />
-        <attr name="input1Color" format="color|reference" />
-        <attr name="input2Color" format="color|reference" />
+        <attr name="speedStrokeColor" format="color|reference" />
+        <attr name="maxSpeedStrokeColor" format="color|reference" />
         <attr name="textColor" format="color|reference" />
         <attr name="backgroundColor" format="color|reference" />
         <attr name="boundaryWidth" format="dimension|reference" />
-        <attr name="input1Width" format="dimension|reference" />
-        <attr name="input2Width" format="dimension|reference" />
+        <attr name="speedStrokeWidth" format="dimension|reference" />
+        <attr name="maxSpeedStrokeWidth" format="dimension|reference" />
         <attr name="textSize" format="dimension|reference" />
         <attr name="android:padding" />
-        <attr name="input1TextSize" format="dimension|reference" />
-        <attr name="input2TextSize" format="dimension|reference" />
-        <attr name="centerText1TextSize" format="dimension|reference" />
-        <attr name="centerText2TextSize" format="dimension|reference" />
+        <attr name="speedTextSize" format="dimension|reference" />
+        <attr name="maxSpeedTextSize" format="dimension|reference" />
+        <attr name="distanceTextSize" format="dimension|reference" />
+        <attr name="durationTextSize" format="dimension|reference" />
     </declare-styleable>
 </resources>
