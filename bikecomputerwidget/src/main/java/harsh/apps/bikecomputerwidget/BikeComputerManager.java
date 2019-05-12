@@ -20,8 +20,4 @@ class BikeComputerManager {
         return drawManager;
     }
 
-    public void setDimensions(int size) {
-        drawManager.setDimensions(size);
-    }
-
 }
