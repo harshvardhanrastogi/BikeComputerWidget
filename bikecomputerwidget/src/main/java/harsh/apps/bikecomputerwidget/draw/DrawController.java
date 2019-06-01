@@ -17,6 +17,7 @@ import android.text.TextPaint;
 import java.util.Locale;
 
 import harsh.apps.bikecomputerwidget.R;
+import harsh.apps.bikecomputerwidget.animation.AnimationValue;
 
 /**
  * Created by Harsh Rastogi on 1/4/19.
@@ -45,7 +46,7 @@ class DrawController {
     private RectF boundaryArcRectF = new RectF();
     private float speedArcPadding;
     private float speedArcSweepAngle;
-    private float boundaryArcSweepAngle = 270f;
+    private float boundaryArcSweepAngle = 0f;
     private float speed;
     private float maxSpeed;
     private float speedTextX;
@@ -78,6 +79,7 @@ class DrawController {
     private float distanceUnitTextY;
     private float computerMaxSpeed = 60f;
     private float defaultArcStartAngle = 90f;
+    private AnimationValue value;
 
 
     DrawController(@NonNull Context context, @NonNull Computer computer, @Nullable TypedArray a) {
@@ -106,9 +108,20 @@ class DrawController {
     }
 
     private void drawArcs(@NonNull Canvas canvas) {
-        canvas.drawArc(maxSpeedArcRectF, maxSpeedArcStartAngle, maxSpeedArcSweepAngle, false, maxSpeedArcPaint);
-        canvas.drawArc(speedArcRectF, defaultArcStartAngle, speedArcSweepAngle, false, speedArcPaint);
-        canvas.drawArc(boundaryArcRectF, defaultArcStartAngle, boundaryArcSweepAngle, false, boundaryArcPaint);
+        if (value != null) {
+            canvas.drawArc(maxSpeedArcRectF, maxSpeedArcStartAngle, maxSpeedArcSweepAngle, false, maxSpeedArcPaint);
+            speedArcSweepAngle = value.getSpeedSweepAngle();
+            boundaryArcSweepAngle = value.getBoundarySweepAngle();
+            maxSpeedArcSweepAngle = value.getMaxSpeedSweepAngle();
+            canvas.drawArc(speedArcRectF, defaultArcStartAngle, speedArcSweepAngle, false, speedArcPaint);
+            canvas.drawArc(boundaryArcRectF, defaultArcStartAngle, boundaryArcSweepAngle, false, boundaryArcPaint);
+            canvas.drawArc(maxSpeedArcRectF, maxSpeedArcStartAngle, maxSpeedArcSweepAngle, false, maxSpeedArcPaint);
+
+        } else {
+            canvas.drawArc(maxSpeedArcRectF, maxSpeedArcStartAngle, maxSpeedArcSweepAngle, false, maxSpeedArcPaint);
+            canvas.drawArc(speedArcRectF, defaultArcStartAngle, speedArcSweepAngle, false, speedArcPaint);
+            canvas.drawArc(boundaryArcRectF, defaultArcStartAngle, boundaryArcSweepAngle, false, boundaryArcPaint);
+        }
     }
 
 
@@ -384,6 +397,10 @@ class DrawController {
         min = 18;
         sec = 57;
         distance = 15.7f;
+    }
+
+    void updateValue(AnimationValue value) {
+        this.value = value;
     }
 }
 

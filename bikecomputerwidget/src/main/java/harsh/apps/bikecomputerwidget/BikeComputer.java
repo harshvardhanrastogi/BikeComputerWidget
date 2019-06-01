@@ -2,17 +2,22 @@ package harsh.apps.bikecomputerwidget;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import harsh.apps.bikecomputerwidget.animation.AnimationManager;
+import harsh.apps.bikecomputerwidget.animation.AnimationValue;
 
 
 /**
  * Created by Harsh Rastogi on 8/3/19.
  */
-public class BikeComputer extends View {
+public class BikeComputer extends View implements AnimationManager.AnimationListener {
 
     private BikeComputerManager computerManager;
+    private boolean animateOnInit;
 
     public BikeComputer(Context context) {
         this(context, null);
@@ -25,8 +30,8 @@ public class BikeComputer extends View {
     public BikeComputer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         computerManager = new BikeComputerManager(context, context.obtainStyledAttributes(attrs,
-                R.styleable.BikeComputer, defStyleAttr, 0));
-        computerManager.drawer().setIsInEditMode();
+                R.styleable.BikeComputer, defStyleAttr, 0), this);
+//        computerManager.drawer().setIsInEditMode();
     }
 
     @Override
@@ -71,5 +76,21 @@ public class BikeComputer extends View {
         setMeasuredDimension(diameter, diameter);
     }
 
+    public void animateOnInitialization(boolean animate) {
+        animateOnInit = animate;
+        if (animateOnInit) {
+            postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    computerManager.animate();
+                }
+            }, 500);
+        }
+    }
 
+
+    @Override
+    public void onAnimationUpdated(@NonNull AnimationValue value) {
+        invalidate();
+    }
 }

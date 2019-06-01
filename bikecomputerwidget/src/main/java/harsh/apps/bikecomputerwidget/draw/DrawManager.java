@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.support.annotation.NonNull;
 
+import harsh.apps.bikecomputerwidget.animation.AnimationValue;
+
 /**
  * Created by Harsh Rastogi on 2/4/19.
  */
@@ -34,6 +36,10 @@ public class DrawManager {
     public void setDimensions(int size) {
         computer.setSize(size);
         controller.setDimensions(size);
+    }
+
+    public void updateValue(@NonNull AnimationValue value) {
+        controller.updateValue(value);
     }
 
 
